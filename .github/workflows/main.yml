@@ -1,4 +1,4 @@
-name: Manual KSU Build 2
+name: Manual KSU Build
 
 on:
   workflow_dispatch
@@ -42,6 +42,9 @@ jobs:
         make $KERNEL_CMDLINE siberia_defconfig
         make $KERNEL_CMDLINE -j$(nproc --all)
         
+        # Ensure the ramdisk directory exists
+        mkdir -p ramdisk/
+
         # Copy the kernel image to the ramdisk folder for enforcing build
         cp out/arch/arm64/boot/Image.gz ramdisk/
 
