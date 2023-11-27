@@ -9,7 +9,7 @@ jobs:
     - name: Checkout zipper
       uses: actions/checkout@v2
       with:
-        repository: osm0sis/AnyKernel3
+        repository: lemniskett/AnyKernel3
         path: zipper
     - name: Checkout kernel source
       uses: actions/checkout@v2
@@ -47,7 +47,7 @@ jobs:
 
         echo "[+] Done."
     - name: Android kernel build
-      uses: osm0sis/android-kernel-actions@master
+      uses: lemniskett/android-kernel-actions@master
       id: build
       env:
         KERNEL_PATH: source
